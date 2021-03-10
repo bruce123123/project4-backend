@@ -3,7 +3,7 @@ const router = express.Router();
 const ctrl = require('../controllers');
 
 
-router.get('/post', ctrl.user.getPost);
-router.put('/post', ctrl.user.editPost);
+router.get('/detail', ctrl.detail.getDetail);
+router.put('/detail', ctrl.detail.editDetail);
 
 module.exports = router;

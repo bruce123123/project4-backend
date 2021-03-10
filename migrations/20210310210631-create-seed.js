@@ -20,6 +20,9 @@ module.exports = {
       cat_type: {
         type: Sequelize.STRING
       },
+      detailId: {
+        type: Sequelize.INTEGER
+      },
       createdAt: {
         allowNull: false,
         defaultValue: new Date(),

@@ -11,19 +11,15 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Seed.belongsTo(models.detail, {foreignKey: "detailId"});
-        // through: "Catagory",
-        // foreignKey: "detailId",
-        // otherKey: "seedId",
-      // });
+      Seed.belongsTo(models.Detail, { foreignKey: "detailId" });
     }
-      };
+  };
   Seed.init({
     name: DataTypes.STRING,
     img: DataTypes.STRING,
     catagory: DataTypes.STRING,
     cat_type: DataTypes.STRING,
-    detailId: DataTypes.INTEGER,
+    detailId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Seed',

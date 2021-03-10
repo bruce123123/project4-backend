@@ -11,20 +11,21 @@ const getDetail = (req, res) => {
     
     Detail.findByPk(req.detail.id, {
         include: [
-            {
-                model: Detail,
-                attributes: ['id', 'botan_name', 'common_name', 'light_requirement', 'planting_soil_temp', 'plant_depth',
-                 'plant_spacing', 'plant_type', 'fruit_size', 'days_to_mature', 'seeds_per_lb']
-            },
 
             {
                 model: Post,
                 attributes: ['id', 'name', 'img', 'catagory', 'cat_type', 'detailId', 'botan_name', 'common_name',
                  'light_requirement', 'planting_soil_temp', 'plant_depth', 'plant_spacing', 'plant_type', 'fruit_size',
                   'days_to_mature', 'seeds_per_lb']
+            },
+            {
+                model: Seed,
+                attributes: ['name', 'img', 'catagory', 'cat_type','detailId']
             }
+
         ],
-        attributes: ['id', 'botan_name', 'common_name', 'detailId'],
+        attributes: ['id', 'botan_name', 'common_name', 'light_requirement', 'planting_soil_temp', 'plant_depth',
+        'plant_spacing', 'plant_type', 'fruit_size', 'days_to_mature', 'seeds_per_lb'],
         order: [
             [{model: Post}, 'botan_name', sort]
         ]
@@ -37,19 +38,19 @@ const getDetail = (req, res) => {
     })
 }
 
-const editPost = (req, res) => {
-    User.update(req.body, {
+const editDetail = (req, res) => {
+    Post.update(req.body, {
         where: {
-            id: req.post.id
+            id: req.detail.id
         },
         returning: true
     })
     .then(() => {
-        User.findByPk(req.post.id, {
+        Post.findByPk(req.detail.id, {
             include: [
                 {
-                    model: Detail,
-                    attributes: ['id', 'name', 'state', 'img', 'country']
+                    model: Seed,
+                    ttributes: ['name', 'img', 'catagory', 'cat_type','detailId']
                 }
             ],
             attributes: ['id', 'name', 'img', 'catagory', 'cat_type', 'detailId', 'botan_name', 'common_name',
@@ -67,5 +68,5 @@ const editPost = (req, res) => {
 
 module.exports = {
     getDetail,
-    editPost
+    editDetail
 }

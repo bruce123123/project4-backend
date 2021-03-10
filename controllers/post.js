@@ -113,7 +113,7 @@ const editPost = (req, res) => {
 const deletePost = (req, res) => {
     Post.findByPk(req.params.postId)
     .then(foundPost => {
-        if(foundPost.userId === req.user.id){
+        if(foundPost.postId === req.post.id){
             Post.destroy({
                 where: {id: req.params.postId}
             })
