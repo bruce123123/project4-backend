@@ -11,11 +11,11 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Detail.belongsToMany(models.seed, {
-        through: "Catagory",
-        foreignKey: "seedId",
-        otherKey: "detailId",
-      });
+      Detail.hasMany(models.seed, { foreignKey: "detailId"});
+        // through: "Catagory",
+        // foreignKey: "seedId",
+        // otherKey: "detailId",
+      // });
     }
       };  
     
