@@ -3,6 +3,6 @@ const router = express.Router();
 const ctrl = require('../controllers');
 
 router.get('/all', ctrl.seed.getAll);
-router.get('/:city', ctrl.seed.getSeedById);
+router.get('/:seed', ctrl.seed.getSeedById);
 
 module.exports = router;

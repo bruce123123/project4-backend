@@ -1,5 +1,6 @@
 const Post = require('../models').Post;
 const Seed = require('../models').Seed;
+const Detail = require('../models').Detail;
 
 const constants = require('../constants');
 
@@ -20,8 +21,11 @@ const getSeedById = (req, res) => {
     if(req.query.sorted === 'asc')
         sort = 'ASC';
     
-    Seed.findByPk(req.params.seed, {
+    Seed.findByPk(req.params.index, {
         include: [
+            {
+                model: Detail,
+            },
             {
                 model: Post,
                 attributes: ['id', 'name', 'img', 'catagory', 'cat_type', 'detailId', 'botan_name', 'common_name',

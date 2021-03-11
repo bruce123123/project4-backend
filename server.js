@@ -42,9 +42,11 @@ const corsOptions = {
   // app.use('/post', verifyToken, routes.post);
   
 
+  app.listen(process.env.PORT||3000, () => {
+    console.log("Backend listening");
 
-  app.listen(process.env.PORT, () => {
-    console.log(`I am listening on port ${process.env.PORT}`);
+//   app.listen(process.env.PORT, () => {
+    // console.log(`I am listening on port ${process.env.PORT}`);
 })
 
 
