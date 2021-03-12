@@ -4,7 +4,7 @@ const Detail = require('../models').Detail;
 
 const constants = require('../constants');
 
-const getAll = (req, res) => {
+const getAllSeed = (req, res) => {
     Seed.findAll()
     .then(seeds => {
         res.json(seeds)
@@ -21,7 +21,7 @@ const getSeedById = (req, res) => {
     if(req.query.sorted === 'asc')
         sort = 'ASC';
     
-    Seed.findByPk(req.params.index, {
+    Seed.findByPk(req.params.id, {
         include: [
             {
                 model: Detail,
@@ -50,6 +50,6 @@ const getSeedById = (req, res) => {
 }
 
 module.exports = {
-    getAll,
+    getAllSeed,
     getSeedById
 }

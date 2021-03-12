@@ -22,7 +22,7 @@ module.exports = {
     name: 'Yellow Corn - Golden Bantam 8 Row',
     catagory: 'Vegetables',
     cat_type: 'Corn',
-    img: "https://www.etsy.com/listing/221617144/golden-bantam-8-row-sweet-corn-heirloom?ref=shop_home_active_1",
+    img: "https://i.etsystatic.com/10162345/r/il/23d1be/723662501/il_794xN.723662501_iz63.jpg",
     detailId: 3,
       }],
      

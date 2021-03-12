@@ -31,7 +31,7 @@ const getDetail = (req, res) => {
         ]
     })
     .then(Detail => {
-        res.status(constants.SUCCESS).json(Post)
+        res.status(constants.SUCCESS).json(Detail)
     })
     .catch(err => {
         res.status(constants.INTERNAL_SERVER_ERROR).send(`ERROR: ${err}`);
@@ -39,26 +39,26 @@ const getDetail = (req, res) => {
 }
 
 const editDetail = (req, res) => {
-    Post.update(req.body, {
+    Detail.update(req.body, {
         where: {
             id: req.detail.id
         },
         returning: true
     })
     .then(() => {
-        Post.findByPk(req.detail.id, {
+        Detail.findByPk(req.detail.id, {
             include: [
                 {
                     model: Seed,
-                    ttributes: ['name', 'img', 'catagory', 'cat_type','detailId']
+                    attributes: ['name', 'img', 'catagory', 'cat_type','detailId']
                 }
             ],
             attributes: ['id', 'name', 'img', 'catagory', 'cat_type', 'detailId', 'botan_name', 'common_name',
             'light_requirement', 'planting_soil_temp', 'plant_depth', 'plant_spacing', 'plant_type', 'fruit_size',
             'days_to_mature', 'seeds_per_lb']
         })
-        .then(userPost => {
-            res.status(constants.SUCCESS).json(userPost)
+        .then(Detail => {
+            res.status(constants.SUCCESS).json(Detail)
         })
     })
     .catch(err => {
