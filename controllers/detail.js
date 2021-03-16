@@ -8,29 +8,31 @@ const getDetail = (req, res) => {
     let sort = 'DESC';
     if(req.query.sorted === 'asc')
         sort = 'ASC';
-    
-    Detail.findByPk(req.detail.id, {
-        include: [
+    console.log('getting details')
+    Detail.findByPk(req.params.id, {
+        
+        // include: [
 
-            {
-                model: Post,
-                attributes: ['id', 'name', 'img', 'catagory', 'cat_type', 'detailId', 'botan_name', 'common_name',
-                 'light_requirement', 'planting_soil_temp', 'plant_depth', 'plant_spacing', 'plant_type', 'fruit_size',
-                  'days_to_mature', 'seeds_per_lb']
-            },
-            {
-                model: Seed,
-                attributes: ['name', 'img', 'catagory', 'cat_type','detailId']
-            }
+            // {
+                // model: Post,
+                // attributes: ['id', 'name', 'img', 'catagory', 'cat_type', 'detailId', 'botan_name', 'common_name',
+                //  'light_requirement', 'planting_soil_temp', 'plant_depth', 'plant_spacing', 'plant_type', 'fruit_size',
+                //   'days_to_mature', 'seeds_per_lb']
+            // },
+            // {
+                // model: Seed,
+                // attributes: ['name', 'img', 'catagory', 'cat_type','detailId']
+            // }
 
-        ],
-        attributes: ['id', 'botan_name', 'common_name', 'light_requirement', 'planting_soil_temp', 'plant_depth',
-        'plant_spacing', 'plant_type', 'fruit_size', 'days_to_mature', 'seeds_per_lb'],
-        order: [
-            [{model: Post}, 'botan_name', sort]
-        ]
+        // ],
+        // attributes: ['id', 'botan_name', 'common_name', 'light_requirement', 'planting_soil_temp', 'plant_depth',
+        // 'plant_spacing', 'plant_type', 'fruit_size', 'days_to_mature', 'seeds_per_lb'],
+        // order: [
+            // [{model: Post}, 'botan_name', sort]
+        // ]
     })
     .then(Detail => {
+        console.log('found details')
         res.status(constants.SUCCESS).json(Detail)
     })
     .catch(err => {

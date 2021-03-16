@@ -3,7 +3,7 @@ const router = express.Router();
 const ctrl = require('../controllers');
 
 
-router.get('/detail', ctrl.detail.getDetail);
-router.put('/detail', ctrl.detail.editDetail);
+router.get('/:id', ctrl.detail.getDetail);
+router.put('/:id', ctrl.detail.editDetail);
 
 module.exports = router;

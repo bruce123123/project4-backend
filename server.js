@@ -36,7 +36,7 @@ const corsOptions = {
   
   app.use('/Seed', routes.seed);
   app.use('/post', routes.post);
-  app.use('/Detail', routes.detail);
+  app.use('/details', routes.detail);
   // app.use('/auth/verify', verifyToken, routes.auth);
   // app.use('/user', verifyToken, routes.user);
   // app.use('/post', verifyToken, routes.post);
