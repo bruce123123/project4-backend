@@ -2,14 +2,14 @@ const express = require('express');
 const businessRoutes = express.Router();
 
 // Require Business model in our routes module
-let Business = require('./model.post');
+let Posts = require('./model.post');
 
 // Defined store route
 businessRoutes.route('/add').post(function (req, res) {
-  let business = new Business(req.body);
-  business.save()
-    .then(business => {
-      res.status(200).json({'business': 'business in added successfully'});
+  let posts = new Posts(req.body);
+  posts.save()
+    .then(posts => {
+      res.status(200).json({'posts': 'seed added successfully'});
     })
     .catch(err => {
     res.status(400).send("unable to save to database");
@@ -17,13 +17,13 @@ businessRoutes.route('/add').post(function (req, res) {
 });
 
 // Defined get data(index or listing) route
-businessRoutes.route('/').get(function (req, res) {
-    Business.find(function(err, businesses){
-    if(err){
+businessRoutes.route('/index').get(function (req, res) {
+    Posts.find(function(err, posts){
+    if(erp){
       console.log(err);
     }
     else {
-      res.json(businesses);
+      res.json(posts);
     }
   });
 });
