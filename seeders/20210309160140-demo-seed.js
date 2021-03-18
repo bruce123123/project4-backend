@@ -24,7 +24,15 @@ module.exports = {
     cat_type: 'Corn',
     img: "https://i.etsystatic.com/10162345/r/il/23d1be/723662501/il_794xN.723662501_iz63.jpg",
     detailId: 3,
-      }],
+      },
+      {
+    name: 'Stowells Evergreen',
+    catagory: 'Vegetables',
+    cat_type: 'Corn',
+    img: "https://www.southernexposure.com/images/large/sweet-corn-stowells-evergreen_LRG.jpg",
+    detailId: 5,
+      }
+    ],
      
       {});
     
